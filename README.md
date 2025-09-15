@@ -189,27 +189,25 @@ Popular in Docker and Kubernetes environments.
 
 **Commercial CA APIs**
 
-Providers like DigiCert, GlobalSign, Venafi offer APIs.
+Providers like `DigiCert`, `GlobalSign`, `Venafi offer APIs`.
 
 Enterprise-grade lifecycle management for certificates.
 
 ### 2. 📦 Automation in Cloud & DevOps
-HashiCorp Vault
 
-Acts as a dynamic CA.
+*HashiCorp Vault*
+- Acts as a dynamic CA.
+- Issues short-lived certificates on demand.
+- Example: microservices automatically request TLS certs from Vault.
 
-Issues short-lived certificates on demand.
-
-Example: microservices automatically request TLS certs from Vault.
-
-Kubernetes Cert-Manager
+*Kubernetes Cert-Manager*
 
 Kubernetes operator that automates issuing and renewing TLS certificates.
 
 Works with ACME (Let’s Encrypt) or internal CAs.
 
 Example manifest:
-
+```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -221,19 +219,19 @@ spec:
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
+```
 
-Cloud Provider Services
+**Cloud Provider Services**
 
-AWS Certificate Manager (ACM) – Auto provisions and renews certs for ALB, CloudFront, API Gateway.
+`AWS Certificate Manager (ACM)` – Auto provisions and renews certs for ALB, CloudFront, API Gateway.
 
-Azure Key Vault Certificates – Stores, manages, and auto-renews certs for Azure services.
+`Azure Key Vault Certificates` – Stores, manages, and auto-renews certs for Azure services.
 
-Google Cloud Certificate Manager – Auto TLS certificate management for GCP workloads.
+`Google Cloud Certificate Manager` – Auto TLS certificate management for GCP workloads.
 
 ### 3. 🔍 Validation & Testing Tools
-openssl s_client
 
-Debug and check certificate details manually.
+`openssl s_client` - Debug and check certificate details manually.
 
 Example:
 ```sh
@@ -242,21 +240,19 @@ openssl s_client -connect example.com:443 -servername example.com
 
 **SSL Labs Test (Qualys)**
 
-Online tool: https://www.ssllabs.com/ssltest
+`Online tool` - [https://www.ssllabs.com/ssltest](https://www.ssllabs.com/ssltest)
 
 Analyzes certificate validity, TLS config, expiry, and vulnerabilities.
 
 **CLI Tools**
 
-sslscan – Scans supported cipher suites.
+`sslscan` – Scans supported cipher suites.
 
-testssl.sh – Deep TLS testing script.
+`testssl.sh` – Deep TLS testing script.
 
-checkssl – Quick trust and expiry check.
+`checkssl` – Quick trust and expiry check.
 
-mkcert
-
-Developer tool to generate trusted local certificates.
+`mkcert` - Developer tool to generate trusted local certificates.
 
 Example:
 ```
@@ -265,10 +261,10 @@ mkcert localhost 127.0.0.1 ::1
 
 ### 4. 🔄 Certificate Lifecycle Management (Enterprise)
 
-Venafi – Enterprise certificate lifecycle management.
+`Venafi` – Enterprise certificate lifecycle management.
 
-Keyfactor – Automation and governance at scale.
+`Keyfactor` – Automation and governance at scale.
 
-AppViewX CERT+ – Full lifecycle automation platform.
+`AppViewX CERT+` – Full lifecycle automation platform.
 
-Sectigo Certificate Manager – Enterprise PKI and IoT device certificates.
+`Sectigo Certificate Manager` – Enterprise PKI and IoT device certificates.
