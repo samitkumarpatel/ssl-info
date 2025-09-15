@@ -1,6 +1,5 @@
-# ssl-info
-
 # 🔐 SSL/TLS Certificates Explained
+> **SSL** – Secure Sockets Layer (old version of TLS, now obsolete).
 
 ## 📖 Abbreviations
 
