@@ -1,3 +1,50 @@
+# PKI (Public Key Infrastructure) and its Relation to SSL/TLS
+
+## What is PKI?
+**PKI (Public Key Infrastructure)** is the system, policies, roles, and technologies that enable secure digital communication using **cryptographic keys and certificates**.
+
+It provides the **trust framework** that SSL/TLS relies on.
+
+### Core Components of PKI
+1. **CA (Certificate Authority):** Issues and signs digital certificates (e.g., DigiCert, Let’s Encrypt).  
+2. **RA (Registration Authority):** Verifies identity before CA issues certificates.  
+3. **Certificate (X.509):** A digital document that binds a public key to an entity (domain, person, organization).  
+4. **CRL (Certificate Revocation List) / OCSP (Online Certificate Status Protocol):** Ways to check if a certificate is revoked.  
+5. **Public/Private Key Pairs:** Used for encryption, signing, and authentication.
+
+---
+
+## How PKI Relates to SSL/TLS
+SSL/TLS is the **protocol** that provides secure communication between a client (browser, app) and a server.
+
+PKI provides the **trust mechanism** that SSL/TLS relies on to verify identities.
+
+### SSL/TLS Handshake Flow with PKI
+1. **Server presents its certificate** (issued by a CA).  
+2. **Client validates the certificate** using PKI:  
+   - Checks the CA’s signature (must be in the client’s trusted CA store).  
+   - Checks validity dates, revocation status, and domain name.  
+3. **If trusted, client and server exchange keys** (Diffie-Hellman or RSA) to establish a secure session.  
+4. **All communication is encrypted** using session keys (symmetric encryption for speed).
+
+---
+
+## Example
+Visiting `https://bank.com`:
+- The server sends its SSL/TLS certificate, signed by **GlobalSign (CA)**.  
+- Browser checks its **PKI trust store** → finds GlobalSign → validates signature.  
+- If valid, TLS session is established → traffic is encrypted.  
+- If invalid (e.g., self-signed or expired certificate), the browser warns the user.
+
+---
+
+## Summary
+- **PKI = Trust framework** (keys, certificates, CAs, policies).  
+- **SSL/TLS = Protocol** that uses PKI to secure communication.  
+- Without PKI, SSL/TLS would still encrypt traffic, but there would be **no assurance of identity**, leaving users vulnerable to attackers.
+
+---
+
 # 🔐 SSL/TLS Certificates Explained
 > **SSL** – Secure Sockets Layer (old version of TLS, now obsolete).
 
