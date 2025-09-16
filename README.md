@@ -3,6 +3,31 @@
 ## What is PKI?
 **PKI (Public Key Infrastructure)** is the system, policies, roles, and technologies that enable secure digital communication using **cryptographic keys and certificates**.
 
+
+PKI uses both symmetric and asymmetric encryption, combining the speed of symmetric encryption for bulk data with the key management and security benefits of asymmetric encryption. Symmetric encryption uses a single, shared secret key for both encryption and decryption, making it fast for large amounts of data. Asymmetric encryption, the foundation of PKI, uses a public key for encryption and a corresponding private key for decryption, enabling secure key exchange and digital signatures but being slower for large data sets.  
+
+**Symmetric Encryption**
+   - Key Mechanism: One secret key is used for both encrypting and decrypting data. 
+   - Characteristics: It is fast, efficient, and ideal for encrypting large amounts of data. 
+   - Challenge: The main challenge is securely sharing the single secret key between the parties involved. 
+
+**Asymmetric Encryption (Public Key Cryptography)** 
+   - Key Mechanism: A pair of keys is used: a public key for encryption and a private key for decryption. 
+   - Characteristics: The public key can be shared widely, while the private key must be kept secret. 
+   - Benefits: This enables secure key distribution and the creation of digital signatures, which verify authenticity and integrity. 
+   - Limitations: It is slower than symmetric encryption and therefore not used for encrypting large amounts of data directly. 
+
+**How PKI Combines Both**
+
+PKI leverages the strengths of both encryption types through a technique called a digital envelope: 
+   - Secure Key Exchange: A temporary symmetric key is generated to encrypt large amounts of data (e.g., a bank transaction). 
+   - Asymmetric Encryption of the Key: This symmetric key is then encrypted using the recipient's public key. 
+   - Delivery: The encrypted data and the encrypted symmetric key (now the digital envelope) are sent to the recipient. 
+   - Decryption: The recipient uses their private key to decrypt the digital envelope, obtaining the symmetric key. 
+   - Final Decryption: The recipient then uses the recovered symmetric key to quickly decrypt the main message. 
+
+This approach provides the best of both worlds: the speed and efficiency of symmetric encryption for data and the secure key management and authentication offered by asymmetric encryption within the PKI framework. 
+
 It provides the **trust framework** that SSL/TLS relies on.
 
 ### Core Components of PKI
